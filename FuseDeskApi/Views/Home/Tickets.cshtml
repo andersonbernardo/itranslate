@@ -1,0 +1,72 @@
+﻿@model FuseDeskApi.Models.ApiFilter
+
+@{
+    ViewData["Title"] = "Tickets API";
+}
+
+<h2>FuseDesk</h2>
+
+<h4>Gerar CSV dos tickets</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Tickets">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AppName" class="control-label"></label>
+                <input asp-for="AppName" class="form-control" />
+                <span asp-validation-for="AppName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApiKey" class="control-label"></label>
+                <input asp-for="ApiKey" class="form-control" />
+                <span asp-validation-for="ApiKey" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="OpenAfterFilter" class="control-label"></label>
+                    <input asp-for="OpenAfterFilter" type="date" class="form-control" />
+                    <span asp-validation-for="OpenAfterFilter" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="OpenBeforeFilter" class="control-label"></label>
+                    <input asp-for="OpenBeforeFilter" type="date" class="form-control" />
+                    <span asp-validation-for="OpenBeforeFilter" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="ClosedAfterFilter" class="control-label"></label>
+                    <input asp-for="ClosedAfterFilter" type="date" class="form-control" />
+                    <span asp-validation-for="ClosedAfterFilter" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="ClosedBeforeFilter" class="control-label"></label>
+                    <input asp-for="ClosedBeforeFilter" type="date" class="form-control" />
+                    <span asp-validation-for="ClosedBeforeFilter" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Limit" class="control-label"></label>
+                <input asp-for="Limit" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select class="form-control" name="status">
+                    <option value="all">Todos</option>
+                    <option value="new">Novos</option>
+                    <option value="active">Ativos</option>
+                    <option value="open">Abertos</option>
+                    <option value="closed">Fechados</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
